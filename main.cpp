@@ -1,6 +1,8 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <cstddef> // for std::size_t
+
 
 using namespace std;
 
@@ -37,17 +39,29 @@ private:
 
 };
 
+template< class T, size_t N >
+std::size_t length(const T (&)[N]){
+  return N;
+};
+
 int main(){
 	//add players
-	Canon P1("jonathan");
+	Canon Player1("jonathan");
+	Canon Player2("CPU");
 
-	//test adding words
-	P1.add_to_vec("first");
-	P1.add_to_vec("second");
-	P1.add_to_vec("third");
+	//list of words		TO DO: more fair, fixed number of letter words
+	string arr[] = {"because", "cause", "hello", "below", "hit", "miss", "rekt", "pwn", "combo", "jumbo", "critical", "optical", "isoenzyme",
+					"apoenzyme", "tribesman", "brainstem", "blames", "nimble", "yakuza", "wizard", "longbow", "blowup"};
 
-	P1.display_vec();
+	//add words to players
+	for (int i = 0; i < length(arr); ++i){
+		Player1.add_to_vec(arr[i]);
+		Player2.add_to_vec(arr[i]);
+	}
 
+	// Player1.display_vec();	
+
+	
 
 
 	return 0;
