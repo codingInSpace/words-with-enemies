@@ -34,6 +34,10 @@ public:
 	Canon(string name)
 	: name(name){}
 
+	string get_name() const{
+		return name;
+	}
+
 	void add_to_vec(string word){
 		words.push_back(word);
 	}
@@ -54,8 +58,23 @@ public:
 		string word1 = get_random_word();
 		string word2 = p2.get_random_word();
 
-		//debug: print words
-		cout << "player1 word: " << word1 << ", player2 word: " << word2 << endl;
+		//print words
+		cout << get_name() << "\'s word: " << word1 << endl
+			 << p2.get_name() << "\'s word: " << word2 << endl << endl;
+
+		int counter = 0;
+
+		//calculate equal letters
+		for(string::iterator it1 = word1.begin(); it1 != word1.end(); ++it1) {
+			for(string::iterator it2 = word2.begin(); it2 != word2.end(); ++it2) {
+				if((*it1) == (*it2)){
+					counter++;
+				}
+			}
+		}
+
+		//debug
+		cout << "there are " << counter << " equal letters" << endl;
 	}
 
 private:
