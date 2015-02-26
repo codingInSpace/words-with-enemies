@@ -55,26 +55,34 @@ public:
 	}
 
 	void shoot(const Canon& p2){
+		cout << "\n***ROUND START***\n";
 		string word1 = get_random_word();
 		string word2 = p2.get_random_word();
 
 		//print words
 		cout << get_name() << "\'s word: " << word1 << endl
-			 << p2.get_name() << "\'s word: " << word2 << endl << endl;
+			 << p2.get_name() << "\'s word: " << word2 << endl;
 
-		int counter = 0;
+		// int counter = 0;
 
 		//calculate equal letters
 		for(string::iterator it1 = word1.begin(); it1 != word1.end(); ++it1) {
 			for(string::iterator it2 = word2.begin(); it2 != word2.end(); ++it2) {
 				if((*it1) == (*it2)){
-					counter++;
+					// counter++;
+					char c1 = *it1;
+					char c2 = *it2;
+					word1.erase(std::remove(word1.begin(), word1.end(), c1), word1.end());
+					word2.erase(std::remove(word2.begin(), word2.end(), c2), word2.end());
 				}
 			}
 		}
 
+		cout << "\nBOOM\n";
+		cout << "\nAftermath:\n" << get_name() << "\'s word: " << word1 << endl
+			 << p2.get_name() << "\'s word: " << word2 << endl;
 		//debug
-		cout << "there are " << counter << " equal letters" << endl;
+		// cout << "there are " << counter << " equal letters" << endl;
 	}
 
 private:
