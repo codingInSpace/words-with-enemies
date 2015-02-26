@@ -45,12 +45,17 @@ public:
     	cout << endl;
 	}
 
-	string shoot_random_word(){
-		//select random element in vec
-		//http://stackoverflow.com/questions/6942273/get-random-element-from-container-c-stl
+	string get_random_word() const {
 		string word = *select_randomly(words.begin(), words.end());
-
 		return word;
+	}
+
+	void shoot(const Canon& p2){
+		string word1 = get_random_word();
+		string word2 = p2.get_random_word();
+
+		//debug: print words
+		cout << "player1 word: " << word1 << ", player2 word: " << word2 << endl;
 	}
 
 private:
@@ -58,7 +63,6 @@ private:
 	vector<string> words; 
 
 };
-
 
 int main(){
 	//add players
@@ -75,12 +79,7 @@ int main(){
 		Player2.add_to_vec(arr[i]);
 	}
 
-	// Player1.display_vec();	
-
-	//test
-	cout << Player1.shoot_random_word() << endl;
-	
-
+	Player1.shoot(Player2);
 
 	return 0;
 }
