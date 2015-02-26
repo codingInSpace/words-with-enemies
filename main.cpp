@@ -2,9 +2,29 @@
 #include <algorithm>
 #include <vector>
 #include <cstddef> // for std::size_t
-
+#include <random>
+#include <iterator>
 
 using namespace std;
+
+template< class T, size_t N >
+std::size_t length(const T (&)[N]){
+  return N;
+};
+
+template<typename Iter, typename RandomGenerator>
+Iter select_randomly(Iter start, Iter end, RandomGenerator& g) {
+    std::uniform_int_distribution<> dis(0, std::distance(start, end) - 1);
+    std::advance(start, dis(g));
+    return start;
+}
+
+template<typename Iter>
+Iter select_randomly(Iter start, Iter end) {
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+    return select_randomly(start, end, gen);
+}
 
 class Canon{
 public:
@@ -26,9 +46,9 @@ public:
 	}
 
 	string shoot_random_word(){
-		string word = "";
-
 		//select random element in vec
+		//http://stackoverflow.com/questions/6942273/get-random-element-from-container-c-stl
+		string word = *select_randomly(words.begin(), words.end());
 
 		return word;
 	}
@@ -39,10 +59,6 @@ private:
 
 };
 
-template< class T, size_t N >
-std::size_t length(const T (&)[N]){
-  return N;
-};
 
 int main(){
 	//add players
@@ -61,6 +77,8 @@ int main(){
 
 	// Player1.display_vec();	
 
+	//test
+	cout << Player1.shoot_random_word() << endl;
 	
 
 
