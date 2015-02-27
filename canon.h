@@ -32,10 +32,10 @@ Iter select_randomly(Iter start, Iter end) {
 class Canon{
 public:
 	Canon()
-	: name("Unidentified player"){}
+	: name("Unidentified player"), points(0){}
 
 	Canon(string name)
-	: name(name){}
+	: name(name),points(0){}
 
 	string get_name() const;
 
@@ -45,11 +45,16 @@ public:
 
 	string get_random_word() const;
 
-	void shoot(const Canon& p2);
+	void add_point();
+
+	int get_points() const;
+
+	void shoot(Canon& p2);
 
 private:
 	string name;
 	vector<string> words; 
+	int points;
 
 };
 

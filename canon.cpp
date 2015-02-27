@@ -20,7 +20,15 @@ string Canon::get_random_word() const {
 	return word;
 }
 
-void Canon::shoot(const Canon& p2){
+void Canon::add_point(){
+	points++;
+}
+
+int Canon::get_points() const{
+	return points;
+}
+
+void Canon::shoot(Canon& p2){
 	cout << "\n***ROUND START***\n";
 	string word1 = get_random_word();
 	string word2 = p2.get_random_word();
@@ -65,11 +73,12 @@ void Canon::shoot(const Canon& p2){
 	// calc winner
 	if (nLetters1 > nLetters2){			//p1 wins
 		cout << get_name() << " wins with " << (nLetters1 - nLetters2) << " remaining letters more than " << p2.get_name() << endl;
+		add_point();
 	}
 
 	else if(nLetters2 > nLetters1){		//p2 wins
 		cout << p2.get_name() << " wins with " << (nLetters2 - nLetters1) << " remaining letters more than " << get_name() << endl;
-
+		p2.add_point();
 	}
 
 	else if (nLetters1 == nLetters2){	//draw
