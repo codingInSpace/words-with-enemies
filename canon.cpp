@@ -29,7 +29,6 @@ int Canon::get_points() const{
 }
 
 void Canon::shoot(Canon& p2){
-	cout << "\n***ROUND START***\n";
 	string word1 = get_random_word();
 	string word2 = p2.get_random_word();
 

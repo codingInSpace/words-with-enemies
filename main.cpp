@@ -1,7 +1,6 @@
 #include "canon.h"
 
 int main(){
-
 	string exit = "";
 	string name;
 	int roundCounter = 1;
@@ -26,10 +25,12 @@ int main(){
 	//rounds
 	while(exit != "n"){
 		cout << "===========SCORE===========" << endl;
-		cout << Player1.get_name() << ": " << Player1.get_points() << "		" 
+		cout << Player1.get_name() << ": " << Player1.get_points() << "	" 
 			 << Player2.get_name() << ": " << Player2.get_points() << endl;
-		cout << "\n***ROUND " << roundCounter < "***\n";
-		
+		cout << "===========SCORE===========" << endl;
+
+		cout << "\n******ROUND " << roundCounter << " START******\n\n";
+
 		Player1.shoot(Player2);
 
 		cout << "\nKeep playing? (y/n)" << endl;
