@@ -1,4 +1,5 @@
 #include "canon.h"
+#include "functions.h"
 
 int main(){
 	string exit = "";
@@ -12,15 +13,22 @@ int main(){
 	Canon Player1(name);
 	Canon Player2("CPU");
 
-	//list of words		TO DO: more fair, fixed number of letter words
-	string arr[] = {"because", "cause", "hello", "below", "hit", "miss", "rekt", "pwn", "combo", "jumbo", "critical", "optical", "isoenzyme",
-					"apoenzyme", "tribesman", "brainstem", "blames", "nimble", "yakuza", "wizard", "longbow", "blowup"};
+	// //add words to players
+	// for (int i = 0; i < length(arr); ++i){
+	// 	Player1.add_to_vec(arr[i]);
+	// 	Player2.add_to_vec(arr[i]);
+	// }
 
-	//add words to players
-	for (int i = 0; i < length(arr); ++i){
-		Player1.add_to_vec(arr[i]);
-		Player2.add_to_vec(arr[i]);
+	//add letters to vector
+	vector<char> letters;
+	generate_letters(letters);
+
+	//debug: print vector
+	cout << "\nletter vector:";
+	for(vector<char>::iterator it = letters.begin(); it != letters.end(); ++it){
+		cout << *it << ", ";
 	}
+	cout << endl;
 
 	//rounds
 	while(exit != "n"){
