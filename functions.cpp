@@ -9,8 +9,7 @@ void generate_letters(vector<char>& vec){
 		vec.push_back(*select_randomly(alphabet.begin(), alphabet.end()));
 }
 
-void load_dictionary(){
-    vector<string> dic;
+void load_dictionary(vector<string>& dic){
     ifstream File("/usr/share/dict/linux.words");
     string word;
     
@@ -19,9 +18,9 @@ void load_dictionary(){
     }
 
     //debug
-    cout << "\ndic: ";
-	for(vector<string>::iterator it = dic.begin(); it != dic.end(); ++it){
-		cout << *it << ",";
-	}
-	cout << endl;
+    // cout << "\ndic: ";
+	// for(vector<string>::iterator it = dic.begin(); it != dic.end(); ++it){
+	// 	cout << *it << ",";
+	// }
+	// cout << endl;
 }

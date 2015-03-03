@@ -8,7 +8,7 @@
 
 void generate_letters(vector<char>& vec);
 
-void load_dictionary();
+void load_dictionary(vector<string>$ dic);
 
 
 

@@ -3,41 +3,22 @@
 
 int main(){
 	string exit = "";
-	string name;
+	string name = "";
 	int roundCounter = 1;
+	string tempWord = "";
+	vector<char> letters;
+	vector<string> dictionary;
 
-	load_dictionary();
+	// init dictionary
+	load_dictionary(dictionary);
 
-	//add players
+	// add players
 	cout << "Your name: ";
 	cin >> name;
-
 	Canon Player1(name);
 	Canon Player2("CPU");
 
-	//add letters to vector
-	vector<char> letters;
-	generate_letters(letters);
-
-	//debug: print vector
-	cout << "\nletter vector: ";
-	for(vector<char>::iterator it = letters.begin(); it != letters.end(); ++it){
-		cout << *it << ",";
-	}
-	cout << endl;
-
-	//TO DO: bestämma ord från letters
-
-	//add letters 
-	//TO DO: byt till ord
-	string l = "";		
-	for(vector<char>::iterator it = letters.begin(); it != letters.end(); ++it){
-		l = *it;
-		Player1.add_to_vec(l);
-		Player2.add_to_vec(l);
-	}
-
-	//rounds
+	// rounds
 	while(exit != "n"){
 		cout << "===========SCORE===========" << endl;
 		cout << Player1.get_name() << ": " << Player1.get_points() << "	" 
@@ -46,7 +27,30 @@ int main(){
 
 		cout << "\n******ROUND " << roundCounter << " START******\n\n";
 
-		Player1.shoot(Player2);
+		// shoot function is if using words-vector
+		// Player1.shoot(Player2);
+
+		// generate random letters and store in the vector
+		generate_letters(letters);
+
+		// print vector
+		cout << "\nYour letters are: ";
+		for(vector<char>::iterator it = letters.begin(); it != letters.end(); ++it){
+			cout << *it << " ";
+		}
+		cout << endl;
+
+		// compose each word
+		cout << "\nCompose your word: ";
+		cin >> tempWord;
+
+		// validate letters in word
+		// ...
+
+		// validate word in dictionary
+		// ...
+
+		// new shoot functionality
 
 		cout << "\nKeep playing? (y/n)" << endl;
 		cin >> exit;
