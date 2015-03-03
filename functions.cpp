@@ -16,11 +16,19 @@ void load_dictionary(vector<string>& dic){
     while(File >> word){
          dic.push_back(word);
     }
+}
 
-    //debug
-    // cout << "\ndic: ";
-	// for(vector<string>::iterator it = dic.begin(); it != dic.end(); ++it){
-	// 	cout << *it << ",";
-	// }
-	// cout << endl;
+bool validate_letters(string word, vector<char> vec){
+	// bool to be returned initially true
+
+	// loop through word
+		// for each letter, loop through vec
+			// if letter found in vec, break
+			// else set false at end of for-loop
+}
+
+bool validate_word(string word, vector<string> dic){
+	// loop through dic
+		// if word found, return true
+		// else print message and return false
 }

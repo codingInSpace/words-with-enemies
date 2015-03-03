@@ -8,7 +8,11 @@
 
 void generate_letters(vector<char>& vec);
 
-void load_dictionary(vector<string>$ dic);
+void load_dictionary(vector<string>& dic);
+
+bool validate_letters(string word, vector<char> vec);
+
+bool validate_word(string word, vector<string> dic);
 
 
 

@@ -40,17 +40,21 @@ int main(){
 		}
 		cout << endl;
 
+
+		do{
 		// compose each word
 		cout << "\nCompose your word: ";
 		cin >> tempWord;
+		
+			while(!validate_letters(tempWord, letters)){
+				cout << "\nYou got the letters wrong, do it again: ";
+				cin >> tempWord;
+			}
 
-		// validate letters in word
-		// ...
-
-		// validate word in dictionary
-		// ...
+		}while(!validate_word(tempWord, dictionary));
 
 		// new shoot functionality
+		// ...
 
 		cout << "\nKeep playing? (y/n)" << endl;
 		cin >> exit;
